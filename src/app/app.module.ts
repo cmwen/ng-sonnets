@@ -6,10 +6,12 @@ import { AppComponent } from './app.component';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule, MatInputModule} from '@angular/material';
+import { SonnetComponent } from './sonnet/sonnet.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SonnetComponent
   ],
   imports: [
     BrowserModule,
