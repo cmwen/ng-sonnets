@@ -68,8 +68,21 @@ export class SonnetService {
     return this._sonnets;
   }
 
-  updateSonnet(sonnet: Sonnet): boolean {
+  updateSonnet(sonnet: Sonnet): Sonnet[] {
     this.initSonnets();
-    return false;
+
+    const existSonnetIndex = this._sonnets.findIndex( s => s.number === sonnet.number);
+    if (existSonnetIndex >= 0) {
+      this._sonnets[existSonnetIndex] = sonnet;
+      this.saveToStorage(this._sonnets);
+    } else {
+      console.error(`Cannot find sonnet ${sonnet.number} in storage. Dropping sonnet ${sonnet.number}`);
+    }
+
+    return this._sonnets;
+  }
+
+  saveToStorage(sonnets: Sonnet[]) {
+    this.storageService.set(this.SONNET_KEY, JSON.stringify(sonnets));
   }
 }

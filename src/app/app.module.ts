@@ -9,7 +9,8 @@ import {
   MatButtonModule,
   MatInputModule,
   MatListModule,
-  MatCardModule
+  MatCardModule,
+  MatIconModule
 } from '@angular/material';
 import { SonnetComponent } from './sonnet/sonnet.component';
 import { SonnetService, StorageService } from '../services';
@@ -23,7 +24,8 @@ import { SonnetService, StorageService } from '../services';
     MatButtonModule,
     MatInputModule,
     MatListModule,
-    MatCardModule
+    MatCardModule,
+    MatIconModule
   ],
   providers: [SonnetService, StorageService],
   bootstrap: [AppComponent]
