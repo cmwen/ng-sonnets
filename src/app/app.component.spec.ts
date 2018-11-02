@@ -32,8 +32,6 @@ describe('AppComponent', () => {
   });
 
   describe('UI Init', () => {
-    it('should load sonnets from localStorage when it is available', () => {});
-    it('should initialize sonnets with default sonnets when sonnets are empty.', () => {});
   });
 
   describe('View', () => {

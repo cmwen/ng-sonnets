@@ -8,11 +8,11 @@ export const BROWSER_STORAGE = new InjectionToken<Storage>('Browser Storage', {
 @Injectable({
   providedIn: 'root'
 })
-export class StorageServiceService {
+export class StorageService {
   constructor(@Inject(BROWSER_STORAGE) public storage: Storage) {}
 
   get(key: string) {
-    this.storage.getItem(key);
+    return this.storage.getItem(key);
   }
 
   set(key: string, value: string) {

@@ -12,6 +12,7 @@ import {
   MatCardModule
 } from '@angular/material';
 import { SonnetComponent } from './sonnet/sonnet.component';
+import { SonnetService, StorageService } from '../services';
 
 @NgModule({
   declarations: [AppComponent, SonnetComponent],
@@ -24,7 +25,7 @@ import { SonnetComponent } from './sonnet/sonnet.component';
     MatListModule,
     MatCardModule
   ],
-  providers: [],
+  providers: [SonnetService, StorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
