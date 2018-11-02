@@ -5,12 +5,8 @@ import { AppComponent } from './app.component';
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule
-      ],
-      declarations: [
-        AppComponent
-      ],
+      imports: [RouterTestingModule],
+      declarations: [AppComponent]
     }).compileComponents();
   }));
 
@@ -30,10 +26,24 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to ng-sonnets!');
+    expect(compiled.querySelector('h1').textContent).toContain(
+      'Welcome to ng-sonnets!'
+    );
   });
 
-  xit('should Search the list of sonnets via a text input box and display any matching sonnets');
-  xit('should be able to save sonnets to local storage');
-  xit('should be able to edit the sonnet');
+  describe('UI Init', () => {
+    it('should load sonnets from localStorage when it is available', () => {});
+    it('should initialize sonnets with default sonnets when sonnets are empty.', () => {});
+  });
+
+  describe('View', () => {
+    it('should have an input box for searching the list', () => {});
+
+    it('should have a list to show sonnets', () => {});
+  });
+
+  describe('Interaction', () => {
+    it('should Search the list of sonnets via a text input box and display any matching sonnets', () => {});
+    it('should update sonnets model when a sonnet is edited and save to local storage', () => {});
+  });
 });
