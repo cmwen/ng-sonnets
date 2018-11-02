@@ -32,4 +32,8 @@ describe('AppComponent', () => {
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('h1').textContent).toContain('Welcome to ng-sonnets!');
   });
+
+  xit('should Search the list of sonnets via a text input box and display any matching sonnets');
+  xit('should be able to save sonnets to local storage');
+  xit('should be able to edit the sonnet');
 });
