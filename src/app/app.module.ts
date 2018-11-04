@@ -13,10 +13,12 @@ import {
   MatIconModule
 } from '@angular/material';
 import { SonnetComponent } from './sonnet/sonnet.component';
-import { SonnetService, StorageService } from '../services';
+import { SonnetStore, StorageService } from '../services';
+import { HttpClientModule } from '@angular/common/http';
+import { SonnetFilterPipe } from './sonnet-filter.pipe';
 
 @NgModule({
-  declarations: [AppComponent, SonnetComponent],
+  declarations: [AppComponent, SonnetComponent, SonnetFilterPipe],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -25,9 +27,10 @@ import { SonnetService, StorageService } from '../services';
     MatInputModule,
     MatListModule,
     MatCardModule,
-    MatIconModule
+    MatIconModule,
+    HttpClientModule
   ],
-  providers: [SonnetService, StorageService],
+  providers: [SonnetStore, StorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

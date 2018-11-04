@@ -1,12 +1,20 @@
 import { TestBed } from '@angular/core/testing';
 
-import { SonnetService } from './sonnet.service';
+import { SonnetStore } from './sonnet.service';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
-describe('SonnetService', () => {
-  beforeEach(() => TestBed.configureTestingModule({}));
+describe('SonnetStore', () => {
+  let httpMock: HttpTestingController;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+    imports: [ HttpClientTestingModule ]
+  });
+  httpMock = TestBed.get(HttpTestingController);
+});
 
   it('should be created', () => {
-    const service: SonnetService = TestBed.get(SonnetService);
+    const service: SonnetStore = TestBed.get(SonnetStore);
     expect(service).toBeTruthy();
   });
 

@@ -1,6 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SonnetComponent } from './sonnet.component';
+import {
+  MatListModule,
+  MatCardModule,
+  MatInputModule
+} from '@angular/material';
 
 describe('SonnetComponent', () => {
   let component: SonnetComponent;
@@ -8,7 +13,8 @@ describe('SonnetComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [SonnetComponent]
+      declarations: [SonnetComponent],
+      imports: [MatListModule, MatCardModule, MatInputModule]
     }).compileComponents();
   }));
 

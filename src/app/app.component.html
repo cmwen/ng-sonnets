@@ -1,11 +1,11 @@
 <div>
-<mat-form-field>
-    <input matInput #filter (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-    <button mat-icon-button matSuffix aria-label="clear" *ngIf="filter.value" (click)="filter.value=''; applyFilter('');">
+  <mat-form-field class="full-width">
+    <input matInput #sonnetFilter placeholder="Filter">
+    <button mat-icon-button matSuffix aria-label="clear" *ngIf="sonnetFilter.value" (click)="sonnetFilter.value=''">
       <mat-icon>close</mat-icon>
     </button>
   </mat-form-field>
 </div>
-<div *ngFor="let sonnet of sonnetModel" >
-    <app-sonnet [sonnetModel]="sonnet" (changed)="onSonnetChanged($event)"></app-sonnet>
+<div *ngFor="let sonnet of sonnetStore.sonnets | async | sonnetFilter: sonnetFilter.value">
+  <app-sonnet [sonnetModel]="sonnet" (changed)="onSonnetChanged($event)"></app-sonnet>
 </div>

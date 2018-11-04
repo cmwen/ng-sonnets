@@ -1,2 +1,2 @@
 export * from './sonnet.service';
-export * from './storage-service.service';
+export * from './storage.service';
