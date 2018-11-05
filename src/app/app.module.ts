@@ -4,15 +4,33 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {
+  MatButtonModule,
+  MatInputModule,
+  MatListModule,
+  MatCardModule,
+  MatIconModule
+} from '@angular/material';
+import { SonnetComponent } from './sonnet/sonnet.component';
+import { SonnetStore, StorageService } from '../services';
+import { HttpClientModule } from '@angular/common/http';
+import { SonnetFilterPipe } from './sonnet-filter.pipe';
+
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent, SonnetComponent, SonnetFilterPipe],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatInputModule,
+    MatListModule,
+    MatCardModule,
+    MatIconModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [SonnetStore, StorageService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
