@@ -15,7 +15,7 @@ export class SonnetStore {
 
   public readonly sonnets: Observable<Sonnet[]> = this._sonnets.asObservable();
 
-  constructor(protected storageService: StorageService, protected httpClient: HttpClient) {
+  constructor(public storageService: StorageService, protected httpClient: HttpClient) {
     this.initSonnets();
   }
 

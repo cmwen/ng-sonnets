@@ -14,14 +14,11 @@ export class AppComponent implements OnInit {
 
   filteredSonnets;
 
-  constructor(public sonnetStore: SonnetStore) {
+  constructor(public sonnetStore: SonnetStore) {}
 
-  }
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   onSonnetChanged(sonnet: Sonnet) {
-   this.sonnetStore.updateSonnet(sonnet);
+    this.sonnetStore.updateSonnet(sonnet);
   }
 }

@@ -9,8 +9,15 @@ import {
 } from '@angular/material';
 import { SonnetComponent } from './sonnet/sonnet.component';
 import { SonnetFilterPipe } from './sonnet-filter.pipe';
+import {
+  HttpTestingController,
+  HttpClientTestingModule
+} from '@angular/common/http/testing';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('AppComponent', () => {
+  let httpMock: HttpTestingController;
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
@@ -18,10 +25,13 @@ describe('AppComponent', () => {
         MatInputModule,
         MatListModule,
         MatCardModule,
-        MatIconModule
+        MatIconModule,
+        HttpClientTestingModule,
+        NoopAnimationsModule
       ],
       declarations: [AppComponent, SonnetComponent, SonnetFilterPipe]
     }).compileComponents();
+    httpMock = TestBed.get(HttpTestingController);
   }));
 
   it('should create the app', () => {
@@ -30,30 +40,18 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  // it(`should have as title 'ng-sonnets'`, () => {
-  //   const fixture = TestBed.createComponent(AppComponent);
-  //   const app = fixture.debugElement.componentInstance;
-  //   expect(app.title).toEqual('ng-sonnets');
-  // });
-
-  // it('should render title in a h1 tag', () => {
-  //   const fixture = TestBed.createComponent(AppComponent);
-  //   fixture.detectChanges();
-  //   const compiled = fixture.debugElement.nativeElement;
-  //   expect(compiled.querySelector('h1').textContent).toContain(
-  //     'Welcome to ng-sonnets!'
-  //   );
-  // });
-
-  describe('UI Init', () => {});
-
   describe('View', () => {
-    it('should have an input box for searching the list', () => {});
+    it('should have an input box for searching the list', () => {
+      const fixture = TestBed.createComponent(AppComponent);
+      fixture.detectChanges();
+      const compiled = fixture.debugElement.nativeElement;
+      expect(compiled.querySelector('input')).toBeTruthy();
+    });
 
-    it('should have a list to show sonnets', () => {});
+    xit('should have a list to show sonnets', () => {});
   });
 
-  describe('Interaction', () => {
+  xdescribe('Interaction', () => {
     it('should Search the list of sonnets via a text input box and display any matching sonnets', () => {});
     it('should update sonnets model when a sonnet is edited and save to local storage', () => {});
   });

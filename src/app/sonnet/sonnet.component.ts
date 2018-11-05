@@ -22,13 +22,15 @@ export class SonnetComponent implements OnInit {
         lines: this.sonnetModel.lines.slice(0)
       };
     } else {
-      console.log('sonnetMode is required.');
+      console.log('sonnetModel is required.');
     }
   }
 
   onLineChanged(lineNumber: number, newLine: String) {
-    this._sonnetModel.lines[lineNumber] = newLine;
+    if (this._sonnetModel) {
+      this._sonnetModel.lines[lineNumber] = newLine;
 
-    this.changed.emit(this._sonnetModel);
+      this.changed.emit(this._sonnetModel);
+    }
   }
 }
